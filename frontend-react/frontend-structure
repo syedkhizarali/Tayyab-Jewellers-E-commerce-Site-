@@ -1,0 +1,65 @@
+  frontend-react/
+│
+├── index.html                          # HTML shell (Google Fonts loaded here)
+├── vite.config.js                      # Vite config + API proxy to localhost:8000
+├── package.json                        # Dependencies and scripts
+├── .env                                # VITE_API_BASE_URL=http://localhost:8000
+│
+└── src/
+    │
+    ├── main.jsx                        # React root — mounts App with all providers
+    ├── App.jsx                         # Route definitions + layout (Navbar, Footer, ToastContainer)
+    ├── index.css                       # Global styles, gold theme CSS variables, all component styles
+    │
+    ├── api/                            # Axios API modules (one file per domain)
+    │     ├── client.js                 # Axios instance, JWT interceptor, auto token-refresh on 401
+    │     ├── auth.js                   # login (form-encoded), register, getCurrentUser, refreshToken, logout
+    │     ├── products.js               # getProducts, searchProducts, getProductById, createProduct, uploadImage
+    │     ├── cart.js                   # getCart, addToCart, updateCartItem, removeFromCart
+    │     ├── wishlist.js               # getWishlist, addToWishlist, removeFromWishlist
+    │     ├── orders.js                 # getMyOrders, createOrder, updateOrderStatus, getAllOrders
+    │     ├── payments.js               # createPayment, getPayment, getOrderPayments, verifyBankTransfer
+    │     ├── addresses.js              # getAddresses, createAddress, updateAddress, deleteAddress
+    │     ├── profile.js                # getProfile, updateProfile, uploadProfilePhoto
+    │     ├── rates.js                  # getLatestRates, insertManualRate
+    │     └── inventory.js              # updateStock, getLowStockItems
+    │
+    ├── context/                        # Global state via React Context API
+    │     ├── AuthContext.jsx           # user, login, logout, isAdmin, loading
+    │     ├── CartContext.jsx           # items, cartCount, cartTotal, isOpen, addToCart, removeFromCart
+    │     └── WishlistContext.jsx       # items, addToWishlist, removeFromWishlist, isInWishlist
+    │
+    ├── components/                     # Reusable UI components
+    │     │
+    │     ├── common/
+    │     │     ├── Navbar.jsx          # Gold ticker, search, cart badge, user dropdown, mobile menu
+    │     │     ├── Footer.jsx          # Links, contact info, payment method badges
+    │     │     ├── ProtectedRoute.jsx  # ProtectedRoute (login required) + AdminRoute (admin required)
+    │     │     ├── LoadingSpinner.jsx  # Gold spinner + SkeletonCard for product grid loading
+    │     │     └── GoldRateBanner.jsx  # Live gold rate cards (24K/22K/21K/18K per tola and gram)
+    │     │
+    │     ├── products/
+    │     │     ├── ProductCard.jsx     # Product image, wishlist toggle, add to cart, karat badge
+    │     │     └── ProductFilter.jsx   # Dropdown filter panel (category, metal, karat, price, stock)
+    │     │
+    │     └── cart/
+    │           └── CartSidebar.jsx     # Slide-in cart drawer, qty controls, checkout button
+    │
+    └── pages/                          # Route-level page components
+          │
+          ├── Home.jsx                  # Hero, features, categories grid, featured products, gold rates CTA
+          ├── Login.jsx                 # Email/password login form with validation
+          ├── Register.jsx              # Name, email, phone, password registration form
+          ├── Products.jsx              # Product grid with search, filters, URL param support
+          ├── ProductDetail.jsx         # Image gallery, specs, price breakdown, qty selector, add to cart
+          ├── Checkout.jsx              # Address selection, payment method (COD/JazzCash/EasyPaisa/Bank), order summary
+          ├── Orders.jsx                # Order history with expandable items and status badges
+          ├── Wishlist.jsx              # Saved products with move-to-cart action
+          ├── Profile.jsx               # Profile photo, personal info view/edit
+          ├── Addresses.jsx             # Full CRUD for delivery addresses, default address badge
+          └── About.jsx                 # Company story, stats, contact info
+          │
+          └── admin/
+                ├── Dashboard.jsx       # Stats cards, gold rates table, low stock alerts, quick actions
+                ├── AddProduct.jsx      # Product creation form with image upload preview
+                └── ManageOrders.jsx    # Orders table with status filter and inline status update

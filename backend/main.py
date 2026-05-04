@@ -15,10 +15,11 @@ from backend.routes import (
     inventory,
     wishlist,
     address,
-    profile
+    profile,
+    cart,
+    notify
 )
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
 
 # Create database tables
 Base.metadata.create_all(bind=engine)
@@ -40,63 +41,33 @@ app.include_router(inventory.router)
 app.include_router(profile.router)
 app.include_router(address.router)
 app.include_router(wishlist.router)
+app.include_router(cart.router)
+app.include_router(notify.router)
+
 @app.get("/")
 def root():
-    """
-    Root endpoint showing API status and available features
-    """
     return {
         "status": "ok",
         "project": "Tayyab Jewellers Backend",
         "version": "1.0.0",
-        "features": [
-            "User Authentication & Authorization",
-            "Product Management",
-            "Order Processing",
-            "Payment Integration",
-            "Live Gold Rates",
-            "Gold Market Analysis Blog",
-            "Historical Gold Data",
-            "Inventory Management",  # 🆕 NEW FEATURE ADDED
-            "Admin Dashboard",
-            "Sales Analytics"
-        ]
     }
+
 @app.get("/health")
 def health_check():
-    """
-    Health check endpoint for monitoring
-    """
-    return {
-        "status": "healthy",
-        "database": "connected",
-        "features_available": 10,  # Updated count
-        "inventory_management": "active"  # 🆕 NEW: Show inventory feature status
-    }
-# app.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=["http://localhost:5173",
-#     "https://localhost:5173"],
-#     allow_credentials=True,
-#     allow_methods=["*"],
-#     allow_headers=["*"],
-# )
+    return {"status": "healthy"}
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:5173",   # Vite/Vue (your original)
-        "http://localhost:3000",   # React
-        "http://localhost:5500",   # VS Code Live Server
+        "http://localhost:5173",
+        "http://localhost:3000",
+        "http://localhost:5500",
         "http://127.0.0.1:5500",
         "http://localhost:8080",
         "http://127.0.0.1:8080",
-        "null",  # for file:// (some browsers)
+        "null",
     ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-# Serve static frontend files
-app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")

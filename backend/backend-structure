@@ -5,7 +5,6 @@ backend/
 │     ├── profile_repo.py
 │     ├── address_repo.py
 │     ├── wishlist_repo.py
-backend/
 │
 ├── main.py                     # Application entry point
 ├── configs.py                  # Core configuration settings

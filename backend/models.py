@@ -1,5 +1,5 @@
 # backend/models.py
-from sqlalchemy import Column, Integer, String, Float, Boolean, DateTime, ForeignKey, Text, Date
+from sqlalchemy import Column, Integer, String, Float, Boolean, DateTime, ForeignKey, Text, Date, func
 from sqlalchemy import Enum as SAEnum
 from sqlalchemy.orm import relationship
 from datetime import datetime
@@ -22,6 +22,7 @@ class User(Base):
     addresses = relationship("UserAddress", back_populates="user", cascade="all, delete-orphan")
     wishlist_items = relationship("Wishlist", back_populates="user", cascade="all, delete-orphan")
     orders = relationship("Order", back_populates="user", cascade="all, delete-orphan")
+    cart_items = relationship("Cart", back_populates="user", cascade="all, delete-orphan")
 
     role = Column(String(30), default="user")
 
@@ -160,4 +161,16 @@ class Wishlist(Base):
     added_at = Column(DateTime, default=datetime.utcnow)
 
     user = relationship("User", back_populates="wishlist_items")
+    product = relationship("Product")
+
+
+class Cart(Base):
+    __tablename__ = "cart"
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id"))
+    product_id = Column(Integer, ForeignKey("products.id"))
+    quantity = Column(Integer, default=1)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    user = relationship("User", back_populates="cart_items")
     product = relationship("Product")

@@ -4,6 +4,7 @@ from email.message import EmailMessage
 from backend.routes import orders
 from fastapi import background, logger
 from sqlalchemy.sql.functions import user
+
 def send_email_smtp(to_email: str, subject: str, body: str):
     msg = EmailMessage()
     msg["Subject"] = subject

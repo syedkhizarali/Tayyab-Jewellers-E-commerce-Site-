@@ -7,9 +7,10 @@ from pydantic import ConfigDict
 
 # --- Payment Enums ---
 class PaymentMethod(str, Enum):
+    CASH_ON_DELIVERY = "cash_on_delivery"
     BANK_TRANSFER = "bank_transfer"
     JAZZ_CASH = "jazz_cash"
-    EASYPAISA = "easyPaisa"
+    EASYPAISA = "easypaisa"
     STRIPE = "stripe"
     PAYPAL = "paypal"
 
@@ -51,6 +52,7 @@ class ProductCreate(BaseModel):
 
 class ProductOut(ProductCreate):
     id: int
+    images: Optional[str] = None
     created_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
@@ -225,5 +227,25 @@ class WishlistResponse(WishlistBase):
     id: int
     user_id: int
     added_at: Optional[datetime]
+
+    model_config = ConfigDict(from_attributes=True)
+
+
+# Cart schemas
+class CartBase(BaseModel):
+    product_id: int
+    quantity: int = 1
+
+class CartCreate(CartBase):
+    pass
+
+class CartUpdate(BaseModel):
+    quantity: int
+
+class CartItemResponse(CartBase):
+    id: int
+    user_id: int
+    created_at: datetime
+    product: Optional[ProductOut] = None
 
     model_config = ConfigDict(from_attributes=True)
