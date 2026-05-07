@@ -3,7 +3,6 @@ import { ToastContainer } from 'react-toastify';
 import Navbar from './components/common/Navbar';
 import Footer from './components/common/Footer';
 import CartSidebar from './components/cart/CartSidebar';
-import WhatsAppFloat from './components/common/WhatsAppFloat';
 import LeadPopupModal from './components/common/LeadPopupModal';
 import ScrollToTop from './components/common/ScrollToTop';
 import { ProtectedRoute, AdminRoute } from './components/common/ProtectedRoute';
@@ -62,7 +61,6 @@ export default function App() {
 
       <Footer />
 
-      <WhatsAppFloat />
       <LeadPopupModal />
       <ScrollToTop />
 
