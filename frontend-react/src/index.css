@@ -1628,6 +1628,12 @@ button { cursor: pointer; }
   }
   .footer-grid > div:first-child { grid-column: span 1; }
 }
+
+/* ── Contact page responsive grid ── */
+@media (max-width: 767px) {
+  .contact-grid { grid-template-columns: 1fr !important; }
+}
+
 .footer-brand {
   font-family: 'Cinzel', serif;
   font-size: 1.2rem;

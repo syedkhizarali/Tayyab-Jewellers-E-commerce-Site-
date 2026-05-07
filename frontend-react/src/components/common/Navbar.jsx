@@ -241,7 +241,7 @@ export default function Navbar() {
               </div>
 
               <NavItem label="About Us" to="/about"  active={isActive('/about')} />
-              <NavItem label="Contact"  to="/about"  active={false}              />
+              <NavItem label="Contact"  to="/contact" active={isActive('/contact')} />
 
               {/* ── Phone number button ── */}
               <a
