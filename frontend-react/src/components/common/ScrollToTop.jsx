@@ -19,10 +19,10 @@ export default function ScrollToTop() {
       style={{
         position: 'fixed', bottom: 28, right: 28,
         width: 46, height: 46, borderRadius: '50%',
-        background: 'linear-gradient(135deg, #1a1a2e 0%, #2d2d5e 100%)',
-        color: '#fff', border: 'none', cursor: 'pointer',
+        background: 'linear-gradient(135deg, #C9A84C 0%, #8B6914 100%)',
+        color: '#0A0A0A', border: 'none', cursor: 'pointer',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        boxShadow: '0 4px 18px rgba(26,26,46,0.35)',
+        boxShadow: '0 4px 18px rgba(201,168,76,0.35)',
         zIndex: 999,
         opacity: visible ? 1 : 0,
         transform: visible ? 'translateY(0) scale(1)' : 'translateY(12px) scale(0.85)',
@@ -35,8 +35,8 @@ export default function ScrollToTop() {
         e.currentTarget.style.transform = 'translateY(-2px) scale(1.05)';
       }}
       onMouseLeave={e => {
-        e.currentTarget.style.background = 'linear-gradient(135deg, #1a1a2e 0%, #2d2d5e 100%)';
-        e.currentTarget.style.boxShadow = '0 4px 18px rgba(26,26,46,0.35)';
+        e.currentTarget.style.background = 'linear-gradient(135deg, #C9A84C 0%, #8B6914 100%)';
+        e.currentTarget.style.boxShadow = '0 4px 18px rgba(201,168,76,0.35)';
         e.currentTarget.style.transform = 'translateY(0) scale(1)';
       }}
     >
