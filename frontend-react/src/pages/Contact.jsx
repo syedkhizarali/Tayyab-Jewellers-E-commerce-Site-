@@ -5,9 +5,9 @@ import { FaWhatsapp } from 'react-icons/fa';
 
 const G   = '#C9A84C';
 const GD  = '#8B6914';
-const BG  = '#0A0A0A';
-const CR  = '#F0EAD6';
-const MU  = '#9A8866';
+const BG  = '#ffffff';
+const CR  = '#1a1a1a';
+const MU  = '#6a6a6a';
 
 const INFO_CARDS = [
   {
@@ -57,18 +57,18 @@ export default function Contact() {
 
       {/* ── Hero ── */}
       <div style={{ textAlign: 'center', padding: '72px 24px 56px', borderBottom: '1px solid var(--border-subtle)' }}>
-        <p style={{ fontSize: 11, letterSpacing: 3, color: G, textTransform: 'uppercase', marginBottom: 16, fontFamily: 'Cinzel, serif' }}>
+        <h1 style={{ fontSize: 'clamp(2.4rem, 5.5vw, 3.8rem)', fontWeight: 400, fontFamily: 'Cinzel, serif', color: G, marginBottom: 12, letterSpacing: 2 }}>
           Tayyab Jewellers
-        </p>
-        <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3.2rem)', fontWeight: 400, fontFamily: 'Cormorant Garamond, serif', color: CR, marginBottom: 16 }}>
-          Get in Touch
         </h1>
+        <p style={{ fontSize: 'clamp(1.4rem, 3.5vw, 2.2rem)', fontWeight: 400, fontFamily: 'Cormorant Garamond, serif', color: CR, marginBottom: 16 }}>
+          Get in Touch
+        </p>
         <p style={{ fontSize: 15, color: MU, maxWidth: 480, margin: '0 auto', lineHeight: 1.75, fontFamily: 'Jost, sans-serif', fontWeight: 300 }}>
           We're here to help — visit us, call us, or send a message.
         </p>
       </div>
 
-      <div className="container" style={{ maxWidth: 960, padding: '56px 24px' }}>
+      <div style={{ maxWidth: 900, margin: '0 auto', padding: '48px 24px' }}>
 
         {/* ── Info Cards ── */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 16, marginBottom: 48 }}>
@@ -195,7 +195,7 @@ export default function Contact() {
             display: 'inline-flex', alignItems: 'center', gap: 8,
             padding: '12px 30px', borderRadius: 50,
             background: `linear-gradient(135deg, ${G}, ${GD})`,
-            color: BG, fontFamily: 'Jost, sans-serif', fontWeight: 700,
+            color: '#1a1a1a', fontFamily: 'Jost, sans-serif', fontWeight: 700,
             fontSize: 14, textDecoration: 'none',
             boxShadow: '0 4px 18px rgba(201,168,76,0.35)', transition: 'all 0.25s',
           }}

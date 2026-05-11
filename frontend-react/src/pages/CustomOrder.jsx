@@ -12,7 +12,7 @@ const TIMELINES     = ['2–3 weeks', '1 month', '2 months', 'Flexible'];
 export default function CustomOrder() {
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const [budget, setBudget] = useState(50000);
-  const whatsapp = import.meta.env.VITE_WHATSAPP_NUMBER || '923000000000';
+  const whatsapp = import.meta.env.VITE_WHATSAPP_NUMBER || '923154844005';
 
   const onSubmit = (data) => {
     const msg = encodeURIComponent(
@@ -40,9 +40,7 @@ export default function CustomOrder() {
         </div>
       </div>
 
-      <div className="container" style={{ padding: '60px 12px' }}>
-        <div className="row justify-content-center">
-          <div className="col-lg-8">
+      <div style={{ maxWidth: '680px', margin: '0 auto', padding: '60px 24px' }}>
             <div className="custom-order-form">
               <span className="section-label" style={{ marginBottom: 4 }}>Step 1 of 1</span>
               <h3 style={{ fontFamily: 'Cormorant Garamond, serif', color: 'var(--cream)', marginBottom: 4 }}>Tell Us About Your Design</h3>
@@ -54,26 +52,26 @@ export default function CustomOrder() {
                   <div className="col-md-6">
                     <label className="form-label">Full Name *</label>
                     <input className={`form-control${errors.name ? ' is-invalid' : ''}`} placeholder="Your name"
-                      {...register('name', { required: true })} />
+                      style={fieldStyle} {...register('name', { required: true })} />
                     {errors.name && <div className="invalid-feedback">Required</div>}
                   </div>
                   <div className="col-md-6">
                     <label className="form-label">Phone *</label>
-                    <input className={`form-control${errors.phone ? ' is-invalid' : ''}`} placeholder="+92 300 0000000"
-                      {...register('phone', { required: true })} />
+                    <input className={`form-control${errors.phone ? ' is-invalid' : ''}`} placeholder="+92 315 484 4005"
+                      style={fieldStyle} {...register('phone', { required: true })} />
                     {errors.phone && <div className="invalid-feedback">Required</div>}
                   </div>
                   <div className="col-md-6">
                     <label className="form-label">WhatsApp Number</label>
-                    <input className="form-control" placeholder="+92 300 0000000 (if different)"
-                      {...register('whatsapp')} />
+                    <input className="form-control" placeholder="+92 315 484 4005 (if different)"
+                      style={fieldStyle} {...register('whatsapp')} />
                   </div>
 
                   {/* Jewellery Type */}
                   <div className="col-md-6">
                     <label className="form-label">Jewellery Type *</label>
                     <select className={`form-select${errors.jewelry_type ? ' is-invalid' : ''}`}
-                      {...register('jewelry_type', { required: true })}>
+                      style={fieldStyle} {...register('jewelry_type', { required: true })}>
                       <option value="">Select type</option>
                       {JEWELRY_TYPES.map(t => <option key={t} value={t}>{t}</option>)}
                     </select>
@@ -83,13 +81,13 @@ export default function CustomOrder() {
                   {/* Metal */}
                   <div className="col-md-6">
                     <label className="form-label">Metal Type</label>
-                    <select className="form-select" {...register('metal_type')}>
+                    <select className="form-select" style={fieldStyle} {...register('metal_type')}>
                       {METAL_TYPES.map(m => <option key={m} value={m}>{m}</option>)}
                     </select>
                   </div>
                   <div className="col-md-6">
                     <label className="form-label">Karat Preference</label>
-                    <select className="form-select" {...register('karat')}>
+                    <select className="form-select" style={fieldStyle} {...register('karat')}>
                       {KARATS.map(k => <option key={k} value={k}>{k}</option>)}
                     </select>
                   </div>
@@ -97,7 +95,7 @@ export default function CustomOrder() {
                   {/* Stone */}
                   <div className="col-md-6">
                     <label className="form-label">Stone Preference</label>
-                    <select className="form-select" {...register('stone')}>
+                    <select className="form-select" style={fieldStyle} {...register('stone')}>
                       {STONES.map(s => <option key={s} value={s}>{s}</option>)}
                     </select>
                   </div>
@@ -105,7 +103,7 @@ export default function CustomOrder() {
                   {/* Timeline */}
                   <div className="col-md-6">
                     <label className="form-label">Expected Timeline</label>
-                    <select className="form-select" {...register('timeline')}>
+                    <select className="form-select" style={fieldStyle} {...register('timeline')}>
                       {TIMELINES.map(t => <option key={t} value={t}>{t}</option>)}
                     </select>
                   </div>
@@ -119,7 +117,7 @@ export default function CustomOrder() {
                       min={10000} max={500000} step={5000}
                       value={budget}
                       onChange={e => setBudget(parseInt(e.target.value))}
-                      style={{ accentColor: 'var(--gold-primary)' }}
+                      style={{ width: '100%', accentColor: 'var(--gold-primary)' }}
                     />
                     <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, color: 'var(--text-muted)' }}>
                       <span>PKR 10,000</span><span>PKR 500,000+</span>
@@ -133,6 +131,7 @@ export default function CustomOrder() {
                       className={`form-control${errors.description ? ' is-invalid' : ''}`}
                       rows={4}
                       placeholder="Describe your design idea, inspiration, or any reference you have in mind…"
+                      style={{ ...fieldStyle, resize: 'vertical' }}
                       {...register('description', { required: true, minLength: 10 })}
                     />
                     {errors.description && <div className="invalid-feedback">Please describe your design (min 10 chars)</div>}
@@ -149,9 +148,13 @@ export default function CustomOrder() {
                 </div>
               </form>
             </div>
-          </div>
-        </div>
       </div>
     </div>
   );
 }
+
+const fieldStyle = {
+  width: '100%',
+  fontSize: '15px',
+  padding: '12px 16px',
+};

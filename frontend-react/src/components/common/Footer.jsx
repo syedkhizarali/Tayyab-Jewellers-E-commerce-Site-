@@ -6,10 +6,10 @@ import { SiGooglemaps } from 'react-icons/si';
 /* ── colour tokens ── */
 const G       = '#C9A84C';
 const GD      = '#8B6914';
-const DARK    = '#111111';
-const CARD    = '#1A1A1A';
-const CREAM   = '#F0EAD6';
-const MUTED   = '#9A8866';
+const DARK    = '#faf8f4';
+const CARD    = '#f3efe8';
+const CREAM   = '#1a1a1a';
+const MUTED   = '#6a6a6a';
 const BORDER  = 'rgba(201,168,76,0.18)';
 
 /* ── data ── */
@@ -192,16 +192,16 @@ export default function Footer() {
       </div>
 
       {/* ── Bottom bar ── */}
-      <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', padding: '18px 0' }}>
+      <div style={{ borderTop: '1px solid rgba(201,168,76,0.2)', padding: '18px 0' }}>
         <div className="container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10, textAlign: 'center' }}>
-          <span style={{ fontFamily: 'Jost,sans-serif', fontSize: 12, color: 'rgba(154,136,102,.65)' }}>
+          <span style={{ fontFamily: 'Jost,sans-serif', fontSize: 12, color: 'rgba(100,100,100,.75)' }}>
             &copy; {new Date().getFullYear()} Tayyab Jewellers. All rights reserved. — Hallmark Certified | Pure Gold Guaranteed
           </span>
           <div style={{ display: 'flex', gap: 18 }}>
             {[{ label: 'Privacy Policy', to: '/about' }, { label: 'Terms of Service', to: '/about' }].map(l => (
-              <Link key={l.label} to={l.to} style={{ fontFamily: 'Jost,sans-serif', fontSize: 12, color: 'rgba(154,136,102,.65)', textDecoration: 'none', transition: 'color .2s' }}
+              <Link key={l.label} to={l.to} style={{ fontFamily: 'Jost,sans-serif', fontSize: 12, color: 'rgba(100,100,100,.75)', textDecoration: 'none', transition: 'color .2s' }}
                 onMouseEnter={e => e.currentTarget.style.color = G}
-                onMouseLeave={e => e.currentTarget.style.color = 'rgba(154,136,102,.65)'}
+                onMouseLeave={e => e.currentTarget.style.color = 'rgba(100,100,100,.75)'}
               >{l.label}</Link>
             ))}
           </div>

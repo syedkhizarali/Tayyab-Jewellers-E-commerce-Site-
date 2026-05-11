@@ -1,5 +1,5 @@
 /* ============================================================
-   TAYYAB JEWELLERS — Luxury Dark Design System 2026
+   TAYYAB JEWELLERS — Luxury Light Design System 2026
    ============================================================ */
 
 /* ---- CSS Variables ---- */
@@ -8,19 +8,19 @@
   --gold-light:   #E8C97A;
   --gold-dark:    #8B6914;
   --gold-pale:    rgba(201,168,76,0.08);
-  --black-rich:   #0A0A0A;
-  --black-soft:   #141414;
-  --black-card:   #1A1A1A;
-  --black-hover:  #222222;
-  --cream:        #F5F0E8;
-  --cream-dark:   #E8DFC8;
+  --black-rich:   #ffffff;
+  --black-soft:   #faf8f4;
+  --black-card:   #f3efe8;
+  --black-hover:  #ede8e0;
+  --cream:        #1a1a1a;
+  --cream-dark:   #2d2d2d;
   --white-soft:   #FAFAF7;
-  --text-primary: #F0EAD6;
-  --text-muted:   #9A8866;
+  --text-primary: #4a4a4a;
+  --text-muted:   #6a6a6a;
   --border-gold:  rgba(201,168,76,0.2);
-  --border-subtle:rgba(255,255,255,0.06);
+  --border-subtle:rgba(201,168,76,0.15);
   --shadow-gold:  0 4px 30px rgba(201,168,76,0.12);
-  --shadow-card:  0 8px 40px rgba(0,0,0,0.4);
+  --shadow-card:  0 8px 40px rgba(0,0,0,0.08);
   --radius:       12px;
   --radius-sm:    8px;
   --transition:   0.3s ease;
@@ -240,12 +240,12 @@ button { cursor: pointer; }
   z-index: 1000;
 }
 #mainNavbar.scrolled {
-  background: rgba(10,10,10,0.96);
+  background: rgba(255,255,255,0.97);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-gold);
   padding: 10px 0;
-  box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.08);
 }
 .brand-logo {
   font-family: 'Cinzel', serif;
@@ -370,7 +370,7 @@ button { cursor: pointer; }
 .mobile-nav-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(10,10,10,0.97);
+  background: rgba(250,248,244,0.99);
   z-index: 1100;
   display: flex;
   flex-direction: column;
@@ -576,7 +576,7 @@ button { cursor: pointer; }
   position: relative;
   aspect-ratio: 1;
   overflow: hidden;
-  background: #111;
+  background: var(--black-card);
 }
 .product-img {
   width: 100%; height: 100%;
@@ -626,14 +626,14 @@ button { cursor: pointer; }
 .product-card:hover .product-overlay { opacity: 1; transform: translateX(0); }
 .overlay-btn {
   width: 36px; height: 36px;
-  background: var(--black-rich);
+  background: #ffffff;
   border: 1px solid var(--border-gold);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 14px;
-  color: var(--text-primary);
+  color: var(--cream);
   cursor: pointer;
   transition: all var(--transition);
   text-decoration: none;
@@ -681,7 +681,7 @@ button { cursor: pointer; }
 
 /* Skeleton */
 .skeleton-card { background: var(--black-card); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-subtle); }
-.skeleton { background: linear-gradient(90deg, var(--black-card) 25%, #222 50%, var(--black-card) 75%); background-size: 200% 100%; animation: skeleton-shine 1.8s infinite; border-radius: 4px; }
+.skeleton { background: linear-gradient(90deg, var(--black-card) 25%, #ddd5c8 50%, var(--black-card) 75%); background-size: 200% 100%; animation: skeleton-shine 1.8s infinite; border-radius: 4px; }
 .skeleton-img { aspect-ratio: 1; }
 .skeleton-text { height: 13px; margin: 10px 16px; }
 .skeleton-text.short { width: 55%; }

@@ -12,10 +12,10 @@ import { getLatestRates } from '../../api/rates';
 /* ── colour tokens ── */
 const G       = '#C9A84C';
 const GD      = '#8B6914';
-const BG      = '#0A0A0A';
-const CR      = '#F0EAD6';
-const MU      = '#9A8866';
-const BG_CARD = '#1A1A1A';
+const BG      = '#ffffff';
+const CR      = '#1a1a1a';
+const MU      = '#6a6a6a';
+const BG_CARD = '#f3efe8';
 const BORDER  = 'rgba(201,168,76,0.18)';
 
 /* ── Diamond gem SVG logo ── */
@@ -158,7 +158,7 @@ export default function Navbar() {
     <>
       {/* ── Ticker strip ── */}
       <div style={{
-        background: '#111', borderBottom: `1px solid ${BORDER}`,
+        background: '#fdf6e3', borderBottom: `1px solid ${BORDER}`,
         padding: '7px 0', fontSize: 11, fontFamily: 'Cinzel, serif',
         letterSpacing: '0.5px', color: MU, overflow: 'hidden',
       }}>
@@ -182,14 +182,14 @@ export default function Navbar() {
 
       {/* ── Main Navbar ── */}
       <nav style={{
-        background: scrolled ? 'rgba(10,10,10,0.97)' : BG,
+        background: scrolled ? 'rgba(255,255,255,0.97)' : BG,
         backdropFilter: scrolled ? 'blur(12px)' : 'none',
         WebkitBackdropFilter: scrolled ? 'blur(12px)' : 'none',
         padding: scrolled ? '10px 0' : '14px 0',
         position: 'sticky', top: 0, zIndex: 1000,
         transition: 'all 0.35s ease',
-        borderBottom: `1px solid ${scrolled ? BORDER : 'rgba(201,168,76,0.06)'}`,
-        boxShadow: scrolled ? '0 4px 24px rgba(0,0,0,0.6)' : 'none',
+        borderBottom: `1px solid ${scrolled ? BORDER : '#e8dcc8'}`,
+        boxShadow: scrolled ? '0 4px 24px rgba(0,0,0,0.1)' : 'none',
       }}>
         <div className="container">
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
@@ -250,7 +250,7 @@ export default function Navbar() {
                   display: 'inline-flex', alignItems: 'center', gap: 6,
                   padding: '8px 18px', borderRadius: 50,
                   background: `linear-gradient(135deg,${G},${GD})`,
-                  color: BG, fontFamily: 'Jost,sans-serif', fontWeight: 700,
+                  color: '#1a1a1a', fontFamily: 'Jost,sans-serif', fontWeight: 700,
                   fontSize: 12, textDecoration: 'none',
                   boxShadow: `0 3px 14px rgba(201,168,76,0.35)`,
                   transition: 'all 0.25s', letterSpacing: 0.3, whiteSpace: 'nowrap',
@@ -268,7 +268,7 @@ export default function Navbar() {
                   display: 'inline-flex', alignItems: 'center', gap: 6,
                   padding: '9px 20px', borderRadius: 50,
                   background: `linear-gradient(135deg,${G},${GD})`,
-                  color: BG, fontFamily: 'Jost,sans-serif', fontWeight: 700,
+                  color: '#1a1a1a', fontFamily: 'Jost,sans-serif', fontWeight: 700,
                   fontSize: 12, textDecoration: 'none',
                   boxShadow: `0 3px 14px rgba(201,168,76,0.35)`,
                   transition: 'all 0.25s', letterSpacing: 0.5, whiteSpace: 'nowrap',
@@ -417,7 +417,7 @@ export default function Navbar() {
 
       {/* ── Mobile full-screen overlay ── */}
       <div style={{
-        position: 'fixed', inset: 0, background: 'rgba(10,10,10,0.98)',
+        position: 'fixed', inset: 0, background: 'rgba(250,248,244,0.99)',
         zIndex: 1100, display: 'flex', flexDirection: 'column', padding: '24px',
         transform: mobileOpen ? 'translateX(0)' : 'translateX(100%)',
         transition: 'transform 0.35s ease', overflowY: 'auto',
@@ -470,7 +470,7 @@ export default function Navbar() {
           ) : (
             <>
               <Link to="/login" onClick={() => setMobileOpen(false)}
-                style={{ padding: '13px', borderRadius: 50, background: `linear-gradient(135deg,${G},${GD})`, color: BG, textAlign: 'center', fontFamily: 'Jost,sans-serif', fontWeight: 700, fontSize: 14, textDecoration: 'none' }}>
+                style={{ padding: '13px', borderRadius: 50, background: `linear-gradient(135deg,${G},${GD})`, color: '#1a1a1a', textAlign: 'center', fontFamily: 'Jost,sans-serif', fontWeight: 700, fontSize: 14, textDecoration: 'none' }}>
                 Sign In
               </Link>
               <Link to="/register" onClick={() => setMobileOpen(false)}
@@ -511,11 +511,11 @@ function IconBtn({ children, onClick }) {
         width: 36, height: 36, borderRadius: '50%', background: 'none',
         border: '1.5px solid rgba(201,168,76,0.18)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        cursor: 'pointer', color: '#F0EAD6', position: 'relative',
+        cursor: 'pointer', color: '#1a1a1a', position: 'relative',
         transition: 'all 0.2s', flexShrink: 0,
       }}
       onMouseEnter={e => { e.currentTarget.style.borderColor = '#C9A84C'; e.currentTarget.style.color = '#C9A84C'; }}
-      onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(201,168,76,0.18)'; e.currentTarget.style.color = '#F0EAD6'; }}
+      onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(201,168,76,0.18)'; e.currentTarget.style.color = '#1a1a1a'; }}
     >
       {children}
     </button>
@@ -526,10 +526,10 @@ function Badge({ n }) {
   return (
     <span style={{
       position: 'absolute', top: -4, right: -4,
-      background: '#C9A84C', color: '#0A0A0A',
+      background: '#C9A84C', color: '#1a1a1a',
       fontSize: 9, fontWeight: 700, minWidth: 16, height: 16,
       borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center',
-      border: '2px solid #0A0A0A',
+      border: '2px solid #ffffff',
     }}>{n}</span>
   );
 }

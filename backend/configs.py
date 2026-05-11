@@ -1,3 +1,4 @@
+from pathlib import Path
 from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
@@ -21,8 +22,8 @@ class Settings(BaseSettings):
     SMTP_FROM: str = "no-reply@tayyab.com"
 
     model_config = {
-        "env_file": ".env",
-        "extra": "forbid"
+        "env_file": Path(__file__).parent / ".env",
+        "extra": "ignore"
     }
 
 settings = Settings()
